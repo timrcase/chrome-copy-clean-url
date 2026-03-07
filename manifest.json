@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Copy Clean URL",
+  "version": "1.0",
+  "description": "Copy clean URL with Cmd+Shift+C",
+  "permissions": ["tabs", "clipboardWrite", "scripting", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+  "48": "icons/icon48.png",
+  "128": "icons/icon128.png"
+  },
+  "commands": {
+    "copy-clean-url": {
+      "suggested_key": {
+        "mac": "Command+Shift+C",
+        "default": "Ctrl+Shift+C"
+      },
+      "description": "Copy clean URL"
+    }
+  }
+}
