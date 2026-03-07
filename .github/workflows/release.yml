@@ -18,6 +18,13 @@ jobs:
       - name: Decode PEM file
         run: |
           echo "${{ secrets.EXTENSION_PEM }}" > ../extension.pem
+      
+      - name: Debug paths
+        run: |
+          pwd
+          ls -la
+          head -1 extension.pem
+          wc -l extension.pem
 
       - name: Pack extension
         run: |
