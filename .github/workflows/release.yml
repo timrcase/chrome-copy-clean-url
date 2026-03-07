@@ -12,25 +12,20 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v6
 
-      - name: Install Chrome
-        uses: browser-actions/setup-chrome@v2
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
 
-      - name: Decode PEM file
+      - name: Install crx3
+        run: npm install -g crx3
+
+      - name: Write PEM file
         run: |
           echo "${{ secrets.EXTENSION_PEM }}" > ../extension.pem
-      
-      - name: Debug paths
-        run: |
-          pwd
-          ls -la
-          head -1 ../extension.pem
-          wc -l ../extension.pem
 
       - name: Pack extension
-        run: |
-          google-chrome \
-            --pack-extension=. \
-            --pack-extension-key=../extension.pem
+        run: crx3 -p ../extension.pem -o ../extension.crx .
 
       - name: Clean up PEM
         run: rm ../extension.pem
