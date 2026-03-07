@@ -1,0 +1,40 @@
+name: Build Chrome Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v2
+
+      - name: Decode PEM file
+        run: |
+          echo "${{ secrets.EXTENSION_PEM }}" | base64 --decode > extension.pem
+
+      - name: Pack extension
+        run: |
+          google-chrome \
+            --pack-extension=. \
+            --pack-extension-key=extension.pem
+
+      - name: Clean up PEM
+        run: rm extension.pem
+
+      - name: Upload CRX as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: clean-url-copy.crx
+          path: ../*.crx
+
+      - name: Create release and attach CRX
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ../*.crx
