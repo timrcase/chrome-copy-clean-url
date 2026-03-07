@@ -25,7 +25,7 @@ jobs:
           echo "${{ secrets.EXTENSION_PEM }}" > ../extension.pem
 
       - name: Pack extension
-        run: crx3 -p ../extension.pem -o ../extension.crx .
+        run: crx3 -p ../extension.pem -o ../extension.crx manifest.json
 
       - name: Clean up PEM
         run: rm ../extension.pem
