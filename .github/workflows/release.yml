@@ -17,7 +17,7 @@ jobs:
 
       - name: Decode PEM file
         run: |
-          echo "${{ secrets.EXTENSION_PEM }}" | base64 --decode > ../extension.pem
+          echo "${{ secrets.EXTENSION_PEM }}" > ../extension.pem
 
       - name: Pack extension
         run: |
