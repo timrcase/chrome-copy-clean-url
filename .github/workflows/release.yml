@@ -23,8 +23,8 @@ jobs:
         run: |
           pwd
           ls -la
-          head -1 extension.pem
-          wc -l extension.pem
+          head -1 ../extension.pem
+          wc -l ../extension.pem
 
       - name: Pack extension
         run: |
