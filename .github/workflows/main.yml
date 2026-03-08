@@ -1,0 +1,21 @@
+name: Build Chrome Extension
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Create zip
+        run: cd src && zip -r -9 ../copy-clean-url.zip .
+
+      - name: Create release and attach zip
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ../copy-clean-url.zip
