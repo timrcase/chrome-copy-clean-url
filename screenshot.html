@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1280px;
+      height: 800px;
+      background: #1a1a2e;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .browser-bar {
+      width: 900px;
+      background: #292a2d;
+      border-radius: 12px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .url {
+      background: #3c3d41;
+      border-radius: 8px;
+      padding: 8px 16px;
+      color: #e8eaed;
+      font-size: 14px;
+      flex: 1;
+    }
+
+    .description {
+      color: #9aa0a6;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .toast {
+      background: #F0EEE9;
+      color: #022F40;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+    }
+
+    .shortcut {
+      background: #3c3d41;
+      color: #e8eaed;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div class="description">Press ⌘⇧C to copy a clean URL — tracking parameters removed automatically.</div>
+  <div class="browser-bar">
+    <div class="url">https://example.com/article?utm_source=twitter&utm_medium=social&utm_campaign=launch</div>
+  </div>
+  <div class="toast">Copied Current URL</div>
+  <div class="shortcut">⌘ + Shift + C</div>
+</body>
+</html>
