@@ -160,10 +160,52 @@
     }
 
     .status.visible { opacity: 1; }
+
+    .install-banner {
+      display: none;
+      align-items: flex-start;
+      gap: 12px;
+      background: #1e3a5f;
+      border: 1px solid #4a90d9;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 28px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #c8e0f8;
+    }
+
+    .install-banner.visible { display: flex; }
+
+    .install-banner .banner-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .install-banner strong { color: #fff; }
+
+    .install-banner code {
+      background: #0d2744;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: "SF Mono", "Menlo", monospace;
+      font-size: 12px;
+      color: #8ab4f8;
+      user-select: all;
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="install-banner" id="installBanner">
+      <span class="banner-icon">⌨️</span>
+      <div>
+        <strong>Set your keyboard shortcut</strong><br>
+        The shortcut isn't active yet. Visit <code>chrome://extensions/shortcuts</code> in your address bar to assign it.
+      </div>
+    </div>
+
     <h1>Copy Clean URL</h1>
     <p class="subtitle">Parameters stripped from URLs when copying</p>
 

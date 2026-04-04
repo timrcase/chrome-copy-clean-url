@@ -1,3 +1,9 @@
+chrome.runtime.onInstalled.addListener(({ reason }) => {
+  if (reason === "install") {
+    chrome.tabs.create({ url: chrome.runtime.getURL("options.html") + "?installed=1" });
+  }
+});
+
 const DEFAULT_PARAMS = [
   "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
   "fbclid", "gclid", "mc_eid", "ref", "source"

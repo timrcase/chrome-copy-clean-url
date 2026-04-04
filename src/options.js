@@ -53,6 +53,11 @@ document.getElementById("resetBtn").addEventListener("click", () => {
   renderTags();
 });
 
+// Show install banner on first open after installation
+if (new URLSearchParams(location.search).get("installed") === "1") {
+  document.getElementById("installBanner").classList.add("visible");
+}
+
 // Load saved params on open
 chrome.storage.sync.get("trackingParams", ({ trackingParams }) => {
   params = trackingParams ?? [...DEFAULT_PARAMS];
