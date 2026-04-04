@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Copy Clean URL",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Copy clean URL with Cmd+Shift+C",
   "permissions": ["tabs", "clipboardWrite", "scripting", "activeTab", "storage"],
   "options_page": "options.html",
