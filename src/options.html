@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy Clean URL — Settings</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #1e1f22;
+      color: #e8eaed;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 48px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 540px;
+    }
+
+    h1 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #9aa0a6;
+      margin-bottom: 32px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9aa0a6;
+      margin-bottom: 10px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: #2a2b2f;
+      border: 1px solid #3c3d41;
+      border-radius: 10px;
+      padding: 12px;
+      min-height: 56px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #3c3d41;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 13px;
+      font-family: "SF Mono", "Menlo", monospace;
+      color: #e8eaed;
+    }
+
+    .tag button {
+      background: none;
+      border: none;
+      color: #9aa0a6;
+      cursor: pointer;
+      font-size: 15px;
+      line-height: 1;
+      padding: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .tag button:hover { color: #ea4335; }
+
+    .add-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      background: #2a2b2f;
+      border: 1px solid #3c3d41;
+      border-radius: 8px;
+      color: #e8eaed;
+      font-size: 13px;
+      font-family: "SF Mono", "Menlo", monospace;
+      padding: 8px 12px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus { border-color: #8ab4f8; }
+    input[type="text"]::placeholder { color: #5f6368; }
+
+    button.add-btn {
+      background: #8ab4f8;
+      border: none;
+      border-radius: 8px;
+      color: #1e1f22;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      transition: background 0.15s;
+    }
+
+    button.add-btn:hover { background: #aecbfa; }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    button.save-btn {
+      background: #34a853;
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 24px;
+      transition: background 0.15s;
+    }
+
+    button.save-btn:hover { background: #46bb65; }
+
+    button.reset-btn {
+      background: none;
+      border: 1px solid #3c3d41;
+      border-radius: 8px;
+      color: #9aa0a6;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 10px 16px;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    button.reset-btn:hover { border-color: #9aa0a6; color: #e8eaed; }
+
+    .status {
+      font-size: 13px;
+      color: #34a853;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .status.visible { opacity: 1; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Copy Clean URL</h1>
+    <p class="subtitle">Parameters stripped from URLs when copying</p>
+
+    <label>Tracking parameters</label>
+    <div class="tag-list" id="tagList"></div>
+
+    <div class="add-row">
+      <input type="text" id="newParam" placeholder="e.g. ref_src" autocomplete="off" spellcheck="false">
+      <button class="add-btn" id="addBtn">Add</button>
+    </div>
+
+    <div class="actions">
+      <button class="save-btn" id="saveBtn">Save</button>
+      <button class="reset-btn" id="resetBtn">Reset to defaults</button>
+      <span class="status" id="status">Saved</span>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
