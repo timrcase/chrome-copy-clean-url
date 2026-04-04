@@ -10,6 +10,7 @@ The extension reads the URL of the current tab solely to remove tracking paramet
 - `clipboardWrite`: Used to write the cleaned URL to your clipboard.
 - `scripting`: Used to display a confirmation toast notification on the current page.
 - `activeTab`: Used to access the currently active tab when the shortcut is triggered.
+- `storage`: Used to save the user's customized list of tracking parameters to be removed when copying.
 
 ## Contact
 
