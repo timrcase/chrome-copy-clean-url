@@ -53,6 +53,18 @@ document.getElementById("resetBtn").addEventListener("click", () => {
   renderTags();
 });
 
+// Show banner if the keyboard shortcut hasn't been assigned yet
+chrome.commands.getAll((commands) => {
+  const cmd = commands.find(c => c.name === "copy-clean-url");
+  if (cmd && !cmd.shortcut) {
+    document.getElementById("installBanner").classList.add("visible");
+  }
+});
+
+document.getElementById("shortcutsLink").addEventListener("click", () => {
+  chrome.tabs.create({ url: "chrome://extensions/shortcuts" });
+});
+
 // Load saved params on open
 chrome.storage.sync.get("trackingParams", ({ trackingParams }) => {
   params = trackingParams ?? [...DEFAULT_PARAMS];
