@@ -1,13 +1,14 @@
+const DEFAULT_PARAMS = [
+  "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
+  "fbclid", "gclid", "mc_eid", "ref", "source"
+];
+
 chrome.commands.onCommand.addListener(async (command) => {
   if (command === "copy-clean-url") {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     const url = new URL(tab.url);
 
-    // Remove common tracking params
-    const trackingParams = [
-      "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
-      "fbclid", "gclid", "mc_eid", "ref", "source"
-    ];
+    const { trackingParams = DEFAULT_PARAMS } = await chrome.storage.sync.get("trackingParams");
     trackingParams.forEach(p => url.searchParams.delete(p));
 
     // Copy to clipboard and show toast

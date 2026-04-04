@@ -3,7 +3,8 @@
   "name": "Copy Clean URL",
   "version": "1.0",
   "description": "Copy clean URL with Cmd+Shift+C",
-  "permissions": ["tabs", "clipboardWrite", "scripting", "activeTab"],
+  "permissions": ["tabs", "clipboardWrite", "scripting", "activeTab", "storage"],
+  "options_page": "options.html",
   "background": {
     "service_worker": "background.js"
   },
