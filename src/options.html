@@ -194,6 +194,14 @@
       color: #8ab4f8;
       user-select: all;
     }
+
+    .install-banner code[id] {
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .install-banner code[id]:hover { color: #aecbfa; }
   </style>
 </head>
 <body>
@@ -202,7 +210,7 @@
       <span class="banner-icon">⌨️</span>
       <div>
         <strong>Set your keyboard shortcut</strong><br>
-        The shortcut isn't active yet. Visit <code>chrome://extensions/shortcuts</code> in your address bar to assign it.
+        The shortcut isn't active yet. Visit <code id="shortcutsLink">chrome://extensions/shortcuts</code> in your address bar to assign it.
       </div>
     </div>
 

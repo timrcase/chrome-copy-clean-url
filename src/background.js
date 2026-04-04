@@ -1,6 +1,6 @@
 chrome.runtime.onInstalled.addListener(({ reason }) => {
   if (reason === "install") {
-    chrome.tabs.create({ url: chrome.runtime.getURL("options.html") + "?installed=1" });
+    chrome.tabs.create({ url: chrome.runtime.getURL("options.html") });
   }
 });
 
